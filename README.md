@@ -1,6 +1,6 @@
-# 🎨 CSS Box Shadow Generator — Generador de sombras CSS, gratis online
+# CSS Box Shadow Generator — Free Online Tool
 
-**Free CSS Box Shadow Generator.** Create and preview CSS box-shadow effects in real time. Multiple layers, presets (Soft, Hard, Neon, Inset, 3D), full control of offset, blur, spread, color and opacity. No sign-up, no ads, 100% client-side.
+**CSS Box Shadow Generator.** Create CSS shadows with multiple layers. Offset, blur, spread, color, opacity and inset per layer. No sign-up, no ads, 100% client-side.
 
 🌐 **Demo en vivo / Live demo:** [miguelacm.es/tools/css-box-shadow](https://miguelacm.es/tools/css-box-shadow)
 
@@ -13,16 +13,9 @@
 
 ## ✨ Features
 
-- **Previsualización en vivo / Live preview:** See the shadow rendered on a box in real time
-- **Múltiples capas / Multiple layers:** Stack up to 6 independent shadow layers
-- **Presets:** 5 ready-made presets — Soft, Hard, Neon, Inset, 3D
-- **Control total / Full control:** Offset X/Y, blur, spread, color, opacity per layer
-- **Sombras inset / Inset shadows:** Toggle inset on any layer
-- **Colores personalizables / Custom colors:** Background and box colors adjustable
-- **Copia CSS / Copy CSS:** One-click copy of the generated `box-shadow` property
-- **Sin servidor / Zero server:** Everything runs in the browser
-- **Embebible / Embeddable:** Use it as an iframe on any website
-- **Open source:** MIT license, use it freely
+- **🥞 Layered shadows:** Stack multiple shadow layers with offset, blur, spread and inset.
+- **🎨 Color control:** Pick color and opacity per layer with a live preview.
+- **🔒 100% private:** CSS is generated locally, ready to paste.
 
 ---
 
@@ -48,8 +41,6 @@ NEXT_PUBLIC_EMBED_URL=https://miguelacm.es/embed/css-box-shadow
 
 ## 📦 Embed on your website
 
-### Iframe (plug & play)
-
 ```html
 <iframe
   src="https://miguelacm.es/embed/css-box-shadow"
@@ -65,11 +56,11 @@ NEXT_PUBLIC_EMBED_URL=https://miguelacm.es/embed/css-box-shadow
 
 ```html
 <a href="https://miguelacm.es/tools/css-box-shadow" target="_blank" rel="noopener">
-  Generador CSS box-shadow gratis por MACM
+  CSS Box Shadow Generator — free tool by MACM
 </a>
 ```
 
-> 💡 The link option generates a real backlink that benefits the project. Recommended if your platform supports custom HTML.
+> 💡 The link option generates a real backlink that benefits the project.
 
 ---
 
@@ -77,7 +68,7 @@ NEXT_PUBLIC_EMBED_URL=https://miguelacm.es/embed/css-box-shadow
 
 | Technology | Version | Purpose |
 |---|---|---|
-| [Next.js](https://nextjs.org) | 16 | React framework + SSG |
+| [Next.js](https://nextjs.org) | 16 | React framework |
 | [TypeScript](https://www.typescriptlang.org) | 5 | Type safety |
 | [Tailwind CSS](https://tailwindcss.com) | 4 | Styling |
 | [react-icons](https://react-icons.github.io/react-icons/) | 5 | Icons |

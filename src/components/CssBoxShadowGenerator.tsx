@@ -3,6 +3,10 @@
 import { useState, useCallback } from "react";
 import { MdAdd, MdDelete, MdContentCopy, MdCheck } from "react-icons/md";
 
+interface Props {
+  locale?: string;
+}
+
 interface ShadowLayer {
   id: number;
   offsetX: number;
@@ -37,7 +41,8 @@ const PRESETS: { label: string; layers: Omit<ShadowLayer, "id">[] }[] = [
   { label: "3D", layers: [{ offsetX: 2, offsetY: 2, blur: 0, spread: 0, color: "#000000", opacity: 60, inset: false }, { offsetX: -2, offsetY: -2, blur: 0, spread: 0, color: "#ffffff", opacity: 20, inset: false }] },
 ];
 
-export default function CssBoxShadowGenerator() {
+export default function CssBoxShadowGenerator({ locale }: Props) {
+  const isEs = locale !== "en";
   const [layers, setLayers] = useState<ShadowLayer[]>([defaultLayer()]);
   const [bgColor, setBgColor] = useState("#1a1a2e");
   const [boxColor, setBoxColor] = useState("#a78bfa");
@@ -88,12 +93,12 @@ export default function CssBoxShadowGenerator() {
 
       <div className="flex gap-4">
         <label className="flex flex-1 items-center gap-2 text-xs text-text-muted">
-          Fondo
+          {isEs ? "Fondo" : "Background"}
           <input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)}
             className="h-7 w-10 cursor-pointer rounded border border-white/10 bg-transparent" />
         </label>
         <label className="flex flex-1 items-center gap-2 text-xs text-text-muted">
-          Caja
+          {isEs ? "Caja" : "Box"}
           <input type="color" value={boxColor} onChange={(e) => setBoxColor(e.target.value)}
             className="h-7 w-10 cursor-pointer rounded border border-white/10 bg-transparent" />
         </label>
@@ -104,7 +109,7 @@ export default function CssBoxShadowGenerator() {
           <div key={layer.id} className="rounded-2xl border border-white/10 bg-black/20 p-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-text-muted">
-                Capa {idx + 1}
+                {isEs ? `Capa ${idx + 1}` : `Layer ${idx + 1}`}
               </span>
               <div className="flex items-center gap-2">
                 <label className="flex items-center gap-1.5 cursor-pointer text-xs text-text-muted">
@@ -136,13 +141,13 @@ export default function CssBoxShadowGenerator() {
 
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
-                <label className="text-xs text-text-muted">Color</label>
+                <label className="text-xs text-text-muted">{isEs ? "Color" : "Color"}</label>
                 <input type="color" value={layer.color} onChange={(e) => update(layer.id, "color", e.target.value)}
                   className="h-7 w-10 cursor-pointer rounded border border-white/10 bg-transparent" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <label className="text-xs text-text-muted">Opacidad</label>
+                  <label className="text-xs text-text-muted">{isEs ? "Opacidad" : "Opacity"}</label>
                   <span className="text-xs text-primary">{layer.opacity}%</span>
                 </div>
                 <input type="range" min={0} max={100} value={layer.opacity}
@@ -158,7 +163,7 @@ export default function CssBoxShadowGenerator() {
         <button onClick={addLayer}
           className="flex w-full items-center justify-center gap-2 rounded-xl border border-dashed border-white/20 py-2.5 text-sm text-text-muted transition-colors hover:border-primary/40 hover:text-primary">
           <MdAdd />
-          Añadir capa
+          {isEs ? "Añadir capa" : "Add layer"}
         </button>
       )}
 
@@ -168,7 +173,7 @@ export default function CssBoxShadowGenerator() {
           <button onClick={copy}
             className="flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1 text-xs text-text-muted transition-colors hover:border-primary/40 hover:text-primary">
             {copied ? <MdCheck className="text-green-400" /> : <MdContentCopy />}
-            {copied ? "Copiado" : "Copiar"}
+            {copied ? (isEs ? "Copiado" : "Copied") : (isEs ? "Copiar" : "Copy")}
           </button>
         </div>
         <pre className="overflow-x-auto text-xs text-white">
